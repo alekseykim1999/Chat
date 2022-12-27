@@ -18,10 +18,15 @@ namespace Chat.Service.ChatService
         }
 
 
-        public int SendMessage(Message mes)
+        public int SendMessage(string _text, ref List<string> _displayedMessages)
         {
+            Message mes = new Message() { SendTime = DateTime.Now, Text = _text };
             db.Messages.Add(mes);
             int sendMessages = db.SaveChanges();
+            if (sendMessages > 0)
+            {
+                _displayedMessages.Add(_text);
+            }
             return sendMessages;
         }
     }

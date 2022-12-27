@@ -10,7 +10,7 @@ namespace Chat.Pages
 
         private IChatService chatService;
         public List<Message> messages;
-        public List<string?> displayedMessages;
+        public List<string> displayedMessages;
 
         public IndexModel(IChatService _chatService)
         {
@@ -26,11 +26,7 @@ namespace Chat.Pages
 
         public void OnPost(string text)
         {
-            Message mes = new Message() { SendTime = DateTime.Now, Text = text };
-            if (chatService.SendMessage(mes) > 0)
-            {
-                displayedMessages.Add(text);
-            }
+            chatService.SendMessage(text, ref displayedMessages);
         }
     }
 }
