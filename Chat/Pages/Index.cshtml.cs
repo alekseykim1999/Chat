@@ -9,24 +9,21 @@ namespace Chat.Pages
     {
 
         private IChatService chatService;
-        public List<Message> messages;
         public List<string> displayedMessages;
-
         public IndexModel(IChatService _chatService)
         {
             chatService = _chatService;
-            messages = chatService.GetMessages();
-            if(messages is null)
+            displayedMessages = chatService.GetMessages();
+            if(displayedMessages is null)
             {
-                messages = new List<Message>();
+                displayedMessages = new List<string>();
             }
-            displayedMessages = messages.Select(s => s.Text).ToList();
         }
 
 
         public void OnPost(string text)
         {
-            chatService.SendMessage(text, ref displayedMessages);
+            displayedMessages = chatService.SendMessage(text);
         }
     }
 }

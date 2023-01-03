@@ -1776,11 +1776,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Chat\\Chat\\Chat.csproj",
+      "projectUniqueName": "E:\\Файлы\\Исходники\\Chat\\Chat\\Chat.csproj",
       "projectName": "Chat",
-      "projectPath": "E:\\Chat\\Chat\\Chat.csproj",
+      "projectPath": "E:\\Файлы\\Исходники\\Chat\\Chat\\Chat.csproj",
       "packagesPath": "C:\\Users\\Алексей\\.nuget\\packages\\",
-      "outputPath": "E:\\Chat\\Chat\\obj\\",
+      "outputPath": "E:\\Файлы\\Исходники\\Chat\\Chat\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

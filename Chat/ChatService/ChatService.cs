@@ -6,28 +6,30 @@ namespace Chat.Service.ChatService
     public class ChatService : IChatService
     {
         private ChatContext db;
+        private List<string> messages;
         public ChatService(ChatContext context)
         {
             db = context;
+            messages = new List<string>();
         }
 
-        public List<Message> GetMessages()
+        public List<string> GetMessages()
         {
-            var messages = db.Messages.ToList();
+            messages = db.Messages.Select(s => s.Text).ToList();
             return messages;
         }
 
 
-        public int SendMessage(string _text, ref List<string> _displayedMessages)
+        public List<string> SendMessage(string _text)
         {
             Message mes = new Message() { SendTime = DateTime.Now, Text = _text };
             db.Messages.Add(mes);
             int sendMessages = db.SaveChanges();
             if (sendMessages > 0)
             {
-                _displayedMessages.Add(_text);
+                messages.Add(_text);
             }
-            return sendMessages;
+            return messages;
         }
     }
 }
